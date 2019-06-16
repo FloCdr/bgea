@@ -1,0 +1,14 @@
+<div>
+  <p> Ajouter une épreuve </p>
+</div>
+
+<form action='/easyreport/epreuve/' method='post'>
+  {% csrf_token %}
+  {{ formset.management_form }}
+  <table>
+    {% for form in formset %}
+    {{ form }}
+    {% endfor %}
+  </table>
+  <input type = 'submit' value = 'Enregistrer'>
+</form>

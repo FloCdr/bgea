@@ -6,17 +6,17 @@ class Client(models.Model):
 
     code = models.CharField("Code ID", max_length=10)
     nom = models.CharField("Nom", max_length=100)
-    etablissement = models.CharField("Etablissement", max_length=100)
+    etablissement = models.CharField("Etablissement", blank=True, max_length=100)
 
     adresse_siege_1 = models.CharField('Adresse', max_length = 200)
-    adresse_siege_2 = models.CharField("Complément", max_length = 200)
+    adresse_siege_2 = models.CharField("Complément", blank=True, max_length = 200)
     cp_siege = models.CharField("Code postal", max_length = 10)
     commune_siege = models.CharField("Commune", max_length = 100)
 
-    adresse_fact_1 = models.CharField('Adresse', max_length = 200)
-    adresse_fact_2 = models.CharField("Complément", max_length = 200)
-    cp_fact = models.CharField("Code postal", max_length = 10)
-    commune_fact = models.CharField("Commune", max_length = 100)
+    adresse_fact_1 = models.CharField('Adresse', blank=True, max_length = 200)
+    adresse_fact_2 = models.CharField("Complément", blank=True, max_length = 200)
+    cp_fact = models.CharField("Code postal", blank=True, max_length = 10)
+    commune_fact = models.CharField("Commune", blank=True, max_length = 100)
 
     def __str__(self):
         return self.code
@@ -28,7 +28,7 @@ class Contact(models.Model):
     nom = models.CharField('Nom', max_length=100)
     prenom = models.CharField('Prénom', max_length=100)
     email = models.EmailField('Adresse e-mail')
-    telephone = models.CharField('Numéro de téléphone', max_length = 15)
+    telephone = models.CharField('Numéro de téléphone', blank=True, max_length = 15)
 
     def __str__(self):
         return self.nom
@@ -37,7 +37,7 @@ class Fournisseur(models.Model):
 
     code = models.CharField('Code ID', max_length = 15)
     nom = models.CharField('Nom', max_length = 100)
-    etablissement = models.CharField('Etablissement', max_length = 100)
+    etablissement = models.CharField('Etablissement', blank=True, max_length = 100)
 
     def __str__(self):
         return self.code
@@ -58,7 +58,7 @@ class Affaire(models.Model):
     nom = models.CharField('Nom du chantier', max_length = 100)
 
     adresse_1 = models.CharField('Adresse', max_length = 200)
-    adresse_2 = models.CharField("Complément", max_length = 200)
+    adresse_2 = models.CharField("Complément", blank=True, max_length = 200)
     cp = models.CharField("Code postal", max_length = 10)
     commune = models.CharField("Commune", max_length = 100)
 

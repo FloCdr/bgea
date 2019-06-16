@@ -14,6 +14,26 @@ class ClientAdmin(admin.ModelAdmin):
 
 class FournisseurAdmin(admin.ModelAdmin):
 
+    fieldsets = [
+    ('Fournisseur', {'fields' : ['code', 'nom', 'etablissement']}),
+    ]
+
+class ContactAdmin(admin.ModelAdmin):
+
+    fieldsets = [
+    ('Contact', {'fields' : ['nom', 'prenom', 'client']}),
+    ('Coordonnées', {'fields' : ['email', 'telephone']})
+    ]
+
+class AffaireAdmin(admin.ModelAdmin):
+
+    fieldsets = [
+    ('Identification du chantier', {'fields' : ['code', 'nom', 'client']}),
+    ('Adresse du chantier', {'fields' : ['adresse_1', 'adresse_2', 'cp', 'commune']}),
+    ('Contacts pour envoi des rapports', {'fields': ['contact']})
+    ]
+
+
 
 
 admin.site.register(Client, ClientAdmin)
